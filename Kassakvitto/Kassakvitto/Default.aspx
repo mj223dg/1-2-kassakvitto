@@ -10,17 +10,22 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:Label ID="Label1" runat="server" Text="Total köpesumma:"></asp:Label>
+        <asp:Label ID="Declaration" runat="server" Text="Total köpesumma:"></asp:Label>
     </div>
     <div>
-        <asp:TextBox ID="Input" runat="server"></asp:TextBox> <asp:Label ID="Label2" runat="server" Text="Kr"></asp:Label>
+        <asp:TextBox ID="Input" runat="server" defaultbutton="Button1"></asp:TextBox> <asp:Label ID="Currency" runat="server" Text="Kr" ></asp:Label>
     </div>
     <div>
-        <asp:Button ID="Button1" runat="server" Text="Button" />
+        <asp:Button ID="Button1" runat="server" Text="Beräkna rabatt" />
     </div>
     <div>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Fältet får ej vara tomt." ControlToValidate="Input"></asp:RequiredFieldValidator>
+        <asp:Label ID="Receipt" runat="server" Text="Label"></asp:Label>
     </div>
+    <div>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Fältet får ej vara tomt." ControlToValidate="Input" Display="None"></asp:RequiredFieldValidator>
+        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" Type="Double" ControlToCompare="Input" ControlToValidate="Input" Display="None" Operator="GreaterThan" ValueToCompare="0" ViewStateMode="Disabled"></asp:CompareValidator>
+    </div>
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowModelStateErrors="False" />
     </form>
 </body>
 </html>
