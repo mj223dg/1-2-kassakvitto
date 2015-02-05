@@ -14,18 +14,42 @@
     </div>
     <div>
         <asp:TextBox ID="Input" runat="server" defaultbutton="Button1"></asp:TextBox> <asp:Label ID="Currency" runat="server" Text="Kr" ></asp:Label>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" 
+            ErrorMessage="Fältet får ej vara tomt." 
+            ControlToValidate="Input" Display="None">
+        </asp:RequiredFieldValidator>
+        <asp:CompareValidator ID="CompareValidator" runat="server" 
+            ErrorMessage="Endast siffror" Type="Double" 
+            ControlToValidate="Input" 
+            Display="None" 
+            Operator="GreaterThan" 
+            ValueToCompare="0" 
+            ViewStateMode="Disabled">
+        </asp:CompareValidator>
     </div>
     <div>
-        <asp:Button ID="Button1" runat="server" Text="Beräkna rabatt" />
+        <asp:Button ID="Button1" runat="server" Text="Beräkna rabatt" OnClick="Button1_Click" />
     </div>
+        <asp:PlaceHolder ID="PlaceHolder" runat="server" Visible="false">
+            <p>
+                <asp:Literal ID="LiteralTotal" runat="server">Total: {0:c}</asp:Literal>
+            </p>
+            <p>
+                <asp:Literal ID="LiteralDiscountRate" runat="server">Rabattsats: {0:p0}</asp:Literal>
+            </p>
+            <p>
+             <asp:Literal ID="LiteralMoneyOff" runat="server">Rabatt: {0:c}</asp:Literal>
+            </p>
+            <p>
+                <asp:Literal ID="LiteralSubtotal" runat="server">Att betala: {0:c}</asp:Literal>
+            </p>
+        </asp:PlaceHolder>
+
     <div>
-        <asp:Label ID="Receipt" runat="server" Text="Label"></asp:Label>
+        <asp:ValidationSummary ID="ValidationSummary" runat="server" 
+            ShowModelStateErrors="False" />
     </div>
-    <div>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Fältet får ej vara tomt." ControlToValidate="Input" Display="None"></asp:RequiredFieldValidator>
-        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" Type="Double" ControlToCompare="Input" ControlToValidate="Input" Display="None" Operator="GreaterThan" ValueToCompare="0" ViewStateMode="Disabled"></asp:CompareValidator>
-    </div>
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowModelStateErrors="False" />
+        
     </form>
 </body>
 </html>

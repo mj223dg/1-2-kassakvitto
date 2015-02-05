@@ -13,5 +13,24 @@ namespace Kassakvitto
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if(IsValid)
+            {
+                Receipt sum = new Receipt(double.Parse(Input.Text));
+                double moneyOff = sum.MoneyOff;
+                double discount = sum.DiscountRate;
+                double total = sum.SubTotal;
+                double subTotal = sum.Total;
+
+                PlaceHolder.Visible = true;
+                LiteralTotal.Text = String.Format(LiteralTotal.Text, total);
+                LiteralDiscountRate.Text = String.Format(LiteralDiscountRate.Text, discount);
+                LiteralMoneyOff.Text = String.Format(LiteralMoneyOff.Text, moneyOff);
+                LiteralSubtotal.Text = String.Format(LiteralSubtotal.Text, subTotal);
+                
+            }
+        }
     }
 }
