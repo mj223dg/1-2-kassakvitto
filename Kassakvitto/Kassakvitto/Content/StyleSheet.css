@@ -1,0 +1,25 @@
+﻿body {
+    background: url(pics/wallpaper.jpeg);
+}
+
+#Input{
+    width: auto;
+    height: auto;
+}
+
+#Results{
+    border: solid 5px;
+    border-color: white;
+    color: white;
+    width: 150px;
+    height: auto;
+    
+}
+
+#Declaration{
+    color: white;
+}
+
+#ValidationSummary{
+    color: white;
+}

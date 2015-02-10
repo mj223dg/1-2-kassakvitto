@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="StyleSheet.css" rel="stylesheet" />
+    <link href="Content/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -30,7 +30,9 @@
     <div>
         <asp:Button ID="Button1" runat="server" Text="Beräkna rabatt" OnClick="Button1_Click" />
     </div>
+    
         <asp:PlaceHolder ID="PlaceHolder" runat="server" Visible="false">
+            <div id="Results">
             <p>
                 <asp:Literal ID="LiteralTotal" runat="server">Total: {0:c}</asp:Literal>
             </p>
@@ -43,7 +45,9 @@
             <p>
                 <asp:Literal ID="LiteralSubtotal" runat="server">Att betala: {0:c}</asp:Literal>
             </p>
+            </div>
         </asp:PlaceHolder>
+    
 
     <div>
         <asp:ValidationSummary ID="ValidationSummary" runat="server" 
